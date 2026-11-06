@@ -12,20 +12,20 @@ jobs:
       - name: Unzip source
         run: unzip -o BanPing-source.zip -d ./src
 
-      - name: 查看解压后的目录结构（排错用）
-        run: ls -R ./src
+      - name: 打印src目录内容
+        run: ls ./src
 
-      - name: 把里面所有文件移动到根目录
-        run: find ./src -mindepth 1 -maxdepth 2 -exec mv {} ./ \;
+      - name: 移动项目文件到根目录
+        run: mv ./src/*/* ./
+
+      - name: 检查gradlew
+        run: ls -la gradlew
 
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
-
-      - name: 确认 gradlew 是否存在
-        run: ls -la gradlew
 
       - name: Build APK
         run: chmod +x gradlew && ./gradlew assembleDebug

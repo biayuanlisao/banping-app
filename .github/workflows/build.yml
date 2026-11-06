@@ -15,8 +15,8 @@ jobs:
       - name: 打印src目录内容
         run: ls ./src
 
-      - name: 移动项目文件到根目录
-        run: mv ./src/*/* ./
+      - name: 移动BanPing文件夹内全部文件到根目录
+        run: mv ./src/BanPing/* ./
 
       - name: 检查gradlew
         run: ls -la gradlew

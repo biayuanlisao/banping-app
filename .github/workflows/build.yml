@@ -12,11 +12,17 @@ jobs:
       - name: Unzip source
         run: unzip -o BanPing-source.zip -d ./src
 
-      - name: 打印src目录内容
+      - name: 打印src目录
         run: ls ./src
 
-      - name: 移动BanPing文件夹内全部文件到根目录
-        run: mv ./src/BanPing/* ./
+      - name: 打印BanPing内部文件
+        run: ls ./src/BanPing
+
+      - name: 移动文件
+        run: cp -r ./src/BanPing/* ./
+
+      - name: 打印当前根目录全部文件
+        run: ls -la
 
       - name: 检查gradlew
         run: ls -la gradlew
